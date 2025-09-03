@@ -23,7 +23,8 @@ class Program
         }
         foreach (Vara vara in inkopslista)
         {
-           Console.WriteLine($"{vara.Namn}, {vara.Pris} kr, produktnummer {vara.Produktnummer}");
+            Console.WriteLine($"{vara.Namn}, {vara.Pris} kr, produktnummer {vara.Produktnummer}");
+            Console.WriteLine("");
 
         }
 
