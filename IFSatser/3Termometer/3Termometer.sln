@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3Termometer", "3Termometer\3Termometer.csproj", "{BEC723E7-8EC8-6140-0961-35CC3483DB4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEC723E7-8EC8-6140-0961-35CC3483DB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC723E7-8EC8-6140-0961-35CC3483DB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC723E7-8EC8-6140-0961-35CC3483DB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC723E7-8EC8-6140-0961-35CC3483DB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6224C362-E719-40BB-B074-B3F3446CB10D}
+	EndGlobalSection
+EndGlobal
