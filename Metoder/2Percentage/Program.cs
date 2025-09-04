@@ -5,22 +5,29 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Mata in ett decimaltal mellan 0 och 1!");
-        string input = Console.ReadLine();
+        decimal value;
 
-        if (decimal.TryParse(input, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal value))
+        while (true) // loopa tills vi får rätt
         {
-            Console.WriteLine($"input blir {ToPercentage(value)}%");
+            Console.WriteLine("Mata in ett decimaltal mellan 0 och 1!");
+            string input = Console.ReadLine();
+
+            if (decimal.TryParse(input, NumberStyles.Number, new CultureInfo("sv-SE"), out value)
+                && value >= 0 && value <= 1)
+            {
+                break; // hoppa ur loopen när det är giltigt
+            }
+            else
+            {
+                Console.WriteLine("Ogiltig inmatning, försök igen.\n");
+            }
         }
-        else
-        {
-            Console.WriteLine("Ogiltig inmatning, försök igen.");
-        }
+
+        Console.WriteLine($"Input blir {ToPercentage(value)}%");
     }
 
     static decimal ToPercentage(decimal talet)
     {
-        decimal resultat = talet * 100;
-        return resultat;
+        return talet * 100;
     }
 }
