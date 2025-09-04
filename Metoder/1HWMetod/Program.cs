@@ -6,9 +6,9 @@ class Program
     {
         PrintMessage();
     }
-
     static void PrintMessage()
     {
-        Console.WriteLine("Hello world!");
-    }
+    Console.WriteLine("Hello World!");
+}
+
 }
