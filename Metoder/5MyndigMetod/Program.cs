@@ -1,27 +1,24 @@
-﻿class Program
-{
+﻿using System;
 
+class Program
+{
     static void Main()
     {
+        Console.Write("Mata in din ålder: ");
+        int age = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Mata in din ålder: ");
-        int age = int.Parse(Console.Readline());
-
-    }
-    static bool Myndig(int age)
-    {
-        bool myndig;
-
-        if (age >= 18)
+        if (Myndig(age))
         {
-            return myndig = true;
+            Console.WriteLine("Du är myndig.");
         }
         else
         {
-            return myndig = false;
+            Console.WriteLine("Du är inte myndig.");
         }
-
-
     }
 
+    static bool Myndig(int age)
+    {
+        return age >= 18;
+    }
 }
