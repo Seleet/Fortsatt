@@ -1,80 +1,110 @@
-﻿
-int playerBullets = 0;
+﻿int playerBullets = 0;
 int cpuBullets = 0;
+bool gameOver = false;
+Random rnd = new Random();
 
-bool cpuChoiceShoot = false;
-bool cpuChoiceReload = true;
-bool cpuChoiceBlock = false;
-
-Console.WriteLine("Howdy Stranger!, Welcome to shotgun!");
-Console.WriteLine("Make your Move!");
-Console.WriteLine("1. Shoot ");
-Console.WriteLine("2. Reload ");
-Console.WriteLine("3. Block ");
-string input = Console.ReadLine();
-
-
-
-if (input == "1" && playerBullets >= 1)
+while (!gameOver)
 {
-    if (playerBullets >= 1)
+    int cpuMove = rnd.Next(1, 4); 
+    bool cpuChoiceShoot = cpuMove == 1;
+    bool cpuChoiceReload = cpuMove == 2;
+    bool cpuChoiceBlock = cpuMove == 3;
+
+    if (cpuBullets == 3 && playerBullets < 3)
     {
-        Console.WriteLine("You fire your gun and...");
-        Shoot(cpuChoiceShoot, cpuChoiceReload, cpuChoiceBlock, ref playerBullets, ref cpuBullets);
+        Console.WriteLine("You get shotgunned and lose!");
+        gameOver = true;
+    }
+    else if (playerBullets == 3 && cpuBullets == 3)
+    {
+        Console.WriteLine("Double knockout!");
+        gameOver = true;
     }
     else
     {
-        Console.WriteLine("Click! No bullets.");
+        if (playerBullets == 3)
+        {
+            Console.WriteLine("Howdy Stranger!, Welcome to shotgun!");
+            Console.WriteLine("Make your Move!");
+            Console.WriteLine("1. Shoot ");
+            Console.WriteLine("2. Reload ");
+            Console.WriteLine("3. Block ");
+            Console.WriteLine("4. Shotgun and WIN!");
+        }
+        else
+        {
+            Console.WriteLine("Howdy Stranger!, Welcome to shotgun!");
+            Console.WriteLine("Make your Move!");
+            Console.WriteLine("1. Shoot ");
+            Console.WriteLine("2. Reload ");
+            Console.WriteLine("3. Block ");
+        }
+
+        string input = Console.ReadLine();
+
+        if (input == "1")
+        {
+            if (playerBullets >= 1)
+            {
+                Console.WriteLine("You fire your gun and...");
+                Shoot(cpuChoiceShoot, cpuChoiceReload, cpuChoiceBlock, ref playerBullets, ref cpuBullets, ref gameOver);
+            }
+            else
+            {
+                Console.WriteLine("Click! No bullets.");
+            }
+        }
+        else if (input == "2")
+        {
+            Console.WriteLine("You reload your gun and...");
+            Reload(cpuChoiceShoot, cpuChoiceReload, cpuChoiceBlock, ref playerBullets, ref cpuBullets, ref gameOver);
+        }
+        else if (input == "3")
+        {
+            Console.WriteLine("You block and...");
+            Block(cpuChoiceShoot, cpuChoiceReload, cpuChoiceBlock, ref playerBullets, ref cpuBullets);
+        }
+        else if (input == "4" && playerBullets == 3)
+        {
+            Console.WriteLine("You SHOTGUN and WIN!");
+            gameOver = true;
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice, make your move.. punk...");
+        }
     }
 }
-else if (input == "2")
-{
-    Console.WriteLine("You reload your gun and...");
-    Reload(cpuChoiceShoot, cpuChoiceReload, cpuChoiceBlock, ref playerBullets, ref cpuBullets);
 
-}
-else if (input == "3")
-{
-    Console.WriteLine("You block and...");
-    Block(cpuChoiceShoot, cpuChoiceReload, cpuChoiceBlock, ref playerBullets, ref cpuBullets);
-}
-else
-{
-    Console.WriteLine("Invalid choice, make your move.. punk...");
-}
-
-
-
-void Shoot(bool cpuChoiceShoot, bool cpuChoiceReload, bool cpuChoiceBlock, ref int playerBullets, ref int cpuBullets)
+void Shoot(bool cpuChoiceShoot, bool cpuChoiceReload, bool cpuChoiceBlock, ref int playerBullets, ref int cpuBullets, ref bool gameOver)
 {
     if (cpuChoiceShoot)
     {
-        System.Console.WriteLine("You both shoot, bullets take each other out and nothing happens!");
+        Console.WriteLine("You both shoot, bullets take each other out and nothing happens!");
         playerBullets -= 1;
         cpuBullets -= 1;
     }
-
     else if (cpuChoiceReload)
     {
-        System.Console.WriteLine("You shoot while CPU was reloading, you win!");
+        Console.WriteLine("You shoot while CPU was reloading, you win!");
         playerBullets -= 1;
+        gameOver = true;
     }
-
     else if (cpuChoiceBlock)
     {
         Console.WriteLine("You shoot while CPU is blocking! You lose a bullet.");
         playerBullets -= 1;
-
     }
 }
 
-void Reload(bool cpuChoiceShoot, bool cpuChoiceReload, bool cpuChoiceBlock, ref int playerBullets, ref int cpuBullets)
-    {
+void Reload(bool cpuChoiceShoot, bool cpuChoiceReload, bool cpuChoiceBlock, ref int playerBullets, ref int cpuBullets, ref bool gameOver)
+{
     if (cpuChoiceShoot)
     {
         Console.WriteLine("You LOSE!");
-            cpuBullets -= 1;
-        }
+        cpuBullets -= 1;
+        gameOver = true;
+    }
     else if (cpuChoiceReload)
     {
         playerBullets += 1;
@@ -84,8 +114,7 @@ void Reload(bool cpuChoiceShoot, bool cpuChoiceReload, bool cpuChoiceBlock, ref 
     {
         playerBullets += 1;
     }
-    }
-
+}
 
 void Block(bool cpuChoiceShoot, bool cpuChoiceReload, bool cpuChoiceBlock, ref int playerBullets, ref int cpuBullets)
 {
