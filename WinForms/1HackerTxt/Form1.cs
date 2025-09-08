@@ -28,7 +28,7 @@ namespace _1HackerTxt
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Kunde inte spara: {ex.Message}");
+                MessageBox.Show($"Kunde inte spara : {ex.Message}");
             }
         }
 
