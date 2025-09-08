@@ -5,7 +5,7 @@ Random rnd = new Random();
 
 while (!gameOver)
 {
-    int cpuMove = rnd.Next(1, 4); 
+    int cpuMove = (cpuBullets > 0) ? rnd.Next(1, 4) : rnd.Next(2, 4);
     bool cpuChoiceShoot = cpuMove == 1;
     bool cpuChoiceReload = cpuMove == 2;
     bool cpuChoiceBlock = cpuMove == 3;
