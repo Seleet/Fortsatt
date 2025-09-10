@@ -25,6 +25,8 @@ while (!gameOver)
         if (playerBullets == 3)
         {
             Console.WriteLine("Howdy Stranger!, Welcome to shotgun!");
+            Console.WriteLine($"You got {playerBullets} bullets.");
+            Console.WriteLine($"CPU got {cpuBullets}");
             Console.WriteLine("Make your Move!");
             Console.WriteLine("1. Shoot ");
             Console.WriteLine("2. Reload ");
@@ -34,6 +36,8 @@ while (!gameOver)
         else
         {
             Console.WriteLine("Howdy Stranger!, Welcome to shotgun!");
+            Console.WriteLine($"You got {playerBullets} bullets.");
+            Console.WriteLine($"CPU got {cpuBullets}");
             Console.WriteLine("Make your Move!");
             Console.WriteLine("1. Shoot ");
             Console.WriteLine("2. Reload ");
