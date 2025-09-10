@@ -1,0 +1,19 @@
+﻿Console.WriteLine("Vilket är kursnamnet?");
+string kursnamn = Console.ReadLine();
+
+Console.WriteLine("Vilket är startdatumet? (ÅÅÅÅ-MM-DD)");
+DateOnly startdatum = DateOnly.Parse(Console.ReadLine());
+
+Console.WriteLine("Vilket är slutdatumet? (ÅÅÅÅ-MM-DD)");
+DateOnly slutdatum = DateOnly.Parse(Console.ReadLine());
+
+Console.WriteLine("Hur många poäng för kursen?");
+int poäng = int.Parse(Console.ReadLine());
+
+// Här skickar du bara in variablerna
+Kurs kurs1 = new Kurs(kursnamn, startdatum, slutdatum, poäng);
+
+Console.WriteLine($"Kursnamn = {kurs1.KursNamn}");
+Console.WriteLine($"Startdatum = {kurs1.StartDatum}");
+Console.WriteLine($"Slutdatum = {kurs1.SlutDatum}");
+Console.WriteLine($"Poäng = {kurs1.Poäng}");
