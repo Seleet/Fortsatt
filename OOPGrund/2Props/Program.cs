@@ -10,10 +10,13 @@ DateOnly slutdatum = DateOnly.Parse(Console.ReadLine());
 Console.WriteLine("Hur många poäng för kursen?");
 int poäng = int.Parse(Console.ReadLine());
 
-// Här skickar du bara in variablerna
+// Skapa kursen
 Kurs kurs1 = new Kurs(kursnamn, startdatum, slutdatum, poäng);
 
-Console.WriteLine($"Kursnamn = {kurs1.KursNamn}");
+// Skriv ut all info
+Console.WriteLine($"\nKursnamn = {kurs1.KursNamn}");
 Console.WriteLine($"Startdatum = {kurs1.StartDatum}");
 Console.WriteLine($"Slutdatum = {kurs1.SlutDatum}");
 Console.WriteLine($"Poäng = {kurs1.Poäng}");
+Console.WriteLine($"Antal kursdagar = {kurs1.AntalKursdagar}");
+Console.WriteLine($"Poäng per kursdag = {kurs1.PoangPerKursdag()}");
