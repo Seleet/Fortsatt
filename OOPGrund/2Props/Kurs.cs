@@ -13,10 +13,10 @@ public class Kurs
         Poäng = poäng;
     }
 
-private int BeraknaAntalKursDagarIntern() =>
-    SlutDatum.DayNumber - StartDatum.DayNumber + 1;
+    private int BeraknaAntalKursDagarIntern() =>
+        SlutDatum.DayNumber - StartDatum.DayNumber + 1;
 
-public int AntalKursdagar => BeraknaAntalKursDagarIntern();
+    public int AntalKursdagar => BeraknaAntalKursDagarIntern();
 
 
     public float PoangPerKursdag()

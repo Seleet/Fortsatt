@@ -1,4 +1,4 @@
-﻿Console.WriteLine("Vilket är kursnamnet?");
+﻿/*Console.WriteLine("Vilket är kursnamnet?");
 string kursnamn = Console.ReadLine();
 
 Console.WriteLine("Vilket är startdatumet? (ÅÅÅÅ-MM-DD)");
@@ -20,3 +20,20 @@ Console.WriteLine($"Slutdatum = {kurs1.SlutDatum}");
 Console.WriteLine($"Poäng = {kurs1.Poäng}");
 Console.WriteLine($"Antal kursdagar = {kurs1.AntalKursdagar}");
 Console.WriteLine($"Poäng per kursdag = {kurs1.PoangPerKursdag()}");
+*/
+Console.WriteLine($"");
+string förnamn = "kenny";
+string efternamn = "jönsson";
+string email = "k.jönsson@mail.nu";
+string telefon = "070-335548";
+
+
+Student nyStudent = new Student(förnamn, efternamn, email, telefon);
+Console.WriteLine($"{nyStudent.Förnamn} {nyStudent.Efternamn} {nyStudent.Email} {nyStudent.Telefon}");
+
+foreach (var b in Student.HamtaBetyg())
+{
+    Console.WriteLine(b);
+}
+
+
