@@ -1,7 +1,7 @@
 
 public class Student
 {
-    
+
     public string Förnamn { get; set; }
 
     public string Efternamn { get; set; }
@@ -24,10 +24,19 @@ public class Student
         return betyg;
     }
 
+    public void RensaData()
+    {
+        Förnamn = "";
+        Efternamn = "";
+        Email = "";
+        Telefon = "";
+    }
+
 }
 
 
-        
+
+
 
 
 
