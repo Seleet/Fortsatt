@@ -1,9 +1,10 @@
 public class Larare
 {
-    public string Förnamn { get; set; }
-    public string Efternamn { get; set; }
-    public string Email { get; set; }
-    public string Telefon { get; set; }
+    public string Förnamn { get; set; } = "";
+    public string Efternamn { get; set; } = "";
+    public string Email { get; set; } = "";
+    public string Telefon { get; set; } = "";
+
 
     // Offentlig metod som anropar den privata metoden
     public List<Kurs> AnsvarigForKurser()
