@@ -64,5 +64,33 @@ foreach (var kurs in kurser)
     Console.WriteLine($"- {kurs.KursNamn} ({kurs.Poäng} poäng)");
 }
 
+var lektion1 = new Lektion
+{
+    Kurs = "C# Grund",
+    Datum = new DateOnly(2025, 9, 15),
+    Klassrum = "A101"
+};
 
+Console.WriteLine($"Boka(): {lektion1.Boka()}");    // true
+Console.WriteLine($"TaBort(): {lektion1.TaBort()}"); // true
+
+// Exempel 2: Saknar datum
+var lektion2 = new Lektion
+{
+    Kurs = "ASP.NET",
+    Klassrum = "B202"
+};
+
+Console.WriteLine($"Boka(): {lektion2.Boka()}");    // false (Datum ej satt)
+Console.WriteLine($"TaBort(): {lektion2.TaBort()}"); // true
+
+// Exempel 3: Saknar Kurs
+var lektion3 = new Lektion
+{
+    Datum = new DateOnly(2025, 9, 20),
+    Klassrum = "C303"
+};
+
+Console.WriteLine($"Boka(): {lektion3.Boka()}");    // false
+Console.WriteLine($"TaBort(): {lektion3.TaBort()}"); // false
 
