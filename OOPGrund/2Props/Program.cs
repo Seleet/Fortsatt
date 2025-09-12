@@ -21,35 +21,48 @@ Console.WriteLine($"Poäng = {kurs1.Poäng}");
 Console.WriteLine($"Antal kursdagar = {kurs1.AntalKursdagar}");
 Console.WriteLine($"Poäng per kursdag = {kurs1.PoangPerKursdag()}");
 
-Console.WriteLine($"");
-string förnamn = "kenny";
-string efternamn = "jönsson";
-string email = "k.jönsson@mail.nu";
-string telefon = "070-335548";
+{
+    Console.Write("Förnamn: ");
+    string förnamn = Console.ReadLine() ?? "";
+
+    Console.Write("Efternamn: ");
+    string efternamn = Console.ReadLine() ?? "";
+
+    Console.Write("Email: ");
+    string email = Console.ReadLine() ?? "";
+
+    Console.Write("Telefon: ");
+    string telefon = Console.ReadLine() ?? "";
+
+    // Skapa student
+    Student student = new Student(förnamn, efternamn, email, telefon);
+
+    // Skriv ut sammanfattning direkt
+    Console.WriteLine(student.Sammanfattning());
+}
 
 
-Student nyStudent = new Student(förnamn, efternamn, email, telefon);
-Console.WriteLine($"{nyStudent.Förnamn} {nyStudent.Efternamn} {nyStudent.Email} {nyStudent.Telefon}");
+
 
 foreach (var b in Student.HamtaBetyg())
 {
     Console.WriteLine(b);
+}
+Larare larare = new Larare
+{
+    Förnamn = "Anna",
+    Efternamn = "Karlsson",
+    Email = "anna.karlsson@skola.se",
+    Telefon = "070-1234567"
+};
 
-        Larare larare = new Larare
-        {
-            Förnamn = "Anna",
-            Efternamn = "Karlsson",
-            Email = "anna.karlsson@skola.se",
-            Telefon = "070-1234567"
-        };
+Console.WriteLine($"{larare.Förnamn} {larare.Efternamn} är ansvarig för:");
 
-        Console.WriteLine($"{larare.Förnamn} {larare.Efternamn} är ansvarig för:");
-        
-        List<Kurs> kurser = larare.AnsvarigForKurser();
-        foreach (var kurs in kurser)
-        {
-            Console.WriteLine($"- {kurs.KursNamn} ({kurs.Poäng} poäng)");
-        }
+List<Kurs> kurser = larare.AnsvarigForKurser();
+foreach (var kurs in kurser)
+{
+    Console.WriteLine($"- {kurs.KursNamn} ({kurs.Poäng} poäng)");
+}
 
-        }
+
 

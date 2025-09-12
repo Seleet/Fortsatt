@@ -32,6 +32,12 @@ public class Student
         Telefon = "";
     }
 
+    public string Sammanfattning()
+    {
+        return $"Student: {Förnamn} {Efternamn}, Email: {Email}, Telefon: {Telefon}";
+
+    }
+
 }
 
 

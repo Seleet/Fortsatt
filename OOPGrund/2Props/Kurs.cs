@@ -21,7 +21,7 @@ public class Kurs
 
     public float PoangPerKursdag()
     {
-        return (float)(Poäng / BeraknaAntalKursDagarIntern());
+        return (float)Poäng / BeraknaAntalKursDagarIntern();
     }
 
 
